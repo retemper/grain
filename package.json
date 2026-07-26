@@ -1,0 +1,11 @@
+{
+  "name": "grain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code plugin: strip AI tells from writing, or draft human from the start. Korean + English.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/grain.test.mjs"
+  }
+}

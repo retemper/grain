@@ -1,0 +1,23 @@
+{
+  "name": "retemper",
+  "owner": {
+    "name": "retemper"
+  },
+  "metadata": {
+    "description": "retemper's Claude Code plugins."
+  },
+  "plugins": [
+    {
+      "name": "grain",
+      "source": "./",
+      "description": "Take the AI tells out of writing. grain polishes a draft until it reads like a person wrote it, or drafts one that way from the start, in Korean and English. A pattern catalog grounded in cited research plus a /grain skill.",
+      "author": {
+        "name": "retemper"
+      },
+      "repository": "https://github.com/retemper/grain",
+      "license": "MIT",
+      "keywords": ["writing", "editing", "prose", "ai-detection", "humanize", "korean", "style"],
+      "category": "productivity"
+    }
+  ]
+}

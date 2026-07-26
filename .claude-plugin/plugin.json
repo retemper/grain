@@ -1,0 +1,11 @@
+{
+  "name": "grain",
+  "version": "0.1.0",
+  "description": "Strips the AI tells out of writing. Polishes a draft so it reads like a person wrote it, or drafts one that way from the start, in Korean and English. Ships a pattern catalog grounded in cited research and a /grain skill.",
+  "author": {
+    "name": "retemper"
+  },
+  "repository": "https://github.com/retemper/grain",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "prose", "ai-detection", "humanize", "korean", "style"]
+}
