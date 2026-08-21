@@ -21,6 +21,7 @@ Invoke the `/grain` skill whenever the user asks to:
 - Not a style enforcer. It does not impose one person's voice. In polish mode it works *inside* the tone the original already set; it never overwrites the author's voice with a new one.
 - Not an AI-detector-score optimizer. Evading a detector is not the goal; readable, human prose is.
 - Not a fact editor. In polish mode it changes style only, never the numbers, names, dates, quotes, or claims.
+- Not a translator. On Korean text it makes the Korean clearer; it does not turn English terms, quotes, code, log lines, or commit messages into Korean. The skill lists these exclusions under `적용 제외 범위`.
 
 ## How it works
 
