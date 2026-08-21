@@ -13,7 +13,7 @@ The test suite enforces this automatically (see below), so a change that reintro
 | Path | What it is | Build step? |
 |------|-----------|-------------|
 | `skills/grain/SKILL.md` | The `/grain` skill (polish + draft modes) | None |
-| `references/patterns.md` | AI-tell catalog (A through I) with cited sources | None |
+| `references/patterns.md` | AI-tell catalog (A through K) with cited sources | None |
 | `.claude-plugin/*.json` | Plugin + marketplace manifests | None |
 | `CLAUDE.md`, `README.md` | Docs | None |
 | `test/grain.test.mjs` | Invariant guard | Run it |
@@ -24,13 +24,14 @@ The test suite enforces this automatically (see below), so a change that reintro
 npm test
 ```
 
-The suite checks four invariants:
+The suite checks these invariants:
 
 - **Manifests** are valid JSON with a consistent name, semver version, and MIT license.
 - **The skill** has valid frontmatter (`name: grain` + a description).
 - **The catalog** exists and keeps its cited-sources section.
 - **No coupling**: no personal or organisational references, no network / telemetry sinks.
 - **The em-dash ban applies to grain itself**: a dash character (`—` or `–`) may appear only on a line that explains the rule (one naming "em dash" / "en dash" / "대시"). Any other use is real punctuation and fails.
+- **Catalog drift**: sections run contiguously from A with no gap, every section is referenced somewhere in `SKILL.md`, the docs state the catalog's real range, and `plugin.json` and `package.json` carry the same version.
 
 ## Editing the catalog
 

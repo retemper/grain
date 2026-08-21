@@ -21,6 +21,17 @@ function shippedFiles(exts) {
 const textFiles = shippedFiles(['.md', '.json']);
 const read = (rel) => readFileSync(path.join(ROOT, rel), 'utf8');
 
+// Catalog section letters in document order, e.g. ['A','B',...].
+function catalogSections() {
+  return [...read('references/patterns.md').matchAll(/^## ([A-Z])\. /gm)].map((m) => m[1]);
+}
+
+const COUNT_WORDS = [
+  'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+  'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen',
+  'nineteen', 'twenty',
+];
+
 test('manifests are valid JSON with a consistent version and name', () => {
   const plugin = JSON.parse(read('.claude-plugin/plugin.json'));
   const market = JSON.parse(read('.claude-plugin/marketplace.json'));
@@ -88,4 +99,52 @@ test('grain obeys its own em-dash ban (dash chars only in rule explanations)', (
     });
   }
   assert.equal(offenders.length, 0, `dash used as punctuation:\n${offenders.join('\n')}`);
+});
+
+// The catalog grows one letter at a time. These three guards catch the drift that
+// a growing catalog actually causes: a skipped letter, a pattern nobody wired into
+// the skill, and a stale "A through X" range in the docs.
+test('catalog sections run contiguously from A', () => {
+  const letters = catalogSections();
+  assert.ok(letters.length >= 9, 'catalog must keep its sections');
+  const expected = letters.map((_, i) => String.fromCharCode(65 + i));
+  assert.deepEqual(letters, expected, 'catalog sections must run A..Z with no gap or repeat');
+});
+
+test('every catalog section is referenced by the skill', () => {
+  const skill = read('skills/grain/SKILL.md');
+  for (const letter of catalogSections()) {
+    const cited = new RegExp(`\\(${letter}[,)]|(?:^|[\\s·|])${letter}(?:의|를|은|는|와|·|[\\s|])`, 'm');
+    assert.ok(cited.test(skill), `SKILL.md must reference catalog section ${letter}`);
+  }
+});
+
+test('docs state the real catalog range', () => {
+  const letters = catalogSections();
+  const last = letters.at(-1);
+  const word = COUNT_WORDS[letters.length];
+  assert.ok(word, 'catalog outgrew the count-word table; extend COUNT_WORDS');
+  for (const rel of ['README.md', 'CLAUDE.md', 'CONTRIBUTING.md']) {
+    const body = read(rel);
+    assert.ok(
+      body.includes(`A through ${last}`),
+      `${rel} must state the full catalog range (A through ${last})`,
+    );
+    // Sub-ranges like "G through K" are fine, but none may reach past the catalog.
+    for (const m of body.matchAll(/\b([A-Z]) through ([A-Z])\b/g)) {
+      assert.ok(
+        m[2] <= last,
+        `${rel} claims a range ending at ${m[2]}, past the catalog's last section ${last}`,
+      );
+    }
+    for (const m of body.matchAll(/(\w+) groups \(A through/g)) {
+      assert.equal(m[1], word, `${rel} says "${m[1]} groups" but the catalog has ${letters.length}`);
+    }
+  }
+});
+
+test('plugin and package versions agree', () => {
+  const plugin = JSON.parse(read('.claude-plugin/plugin.json'));
+  const pkg = JSON.parse(read('package.json'));
+  assert.equal(plugin.version, pkg.version, 'plugin.json and package.json versions must match');
 });

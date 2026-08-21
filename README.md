@@ -13,7 +13,7 @@ grain is deliberately the simplest plugin in the family: **one skill plus one re
 | Piece | What it does |
 |-------|--------------|
 | **`/grain` skill** | Request-triggered. Polishes pasted text or a file (Mode A), or drafts from a topic (Mode B). Reads the catalog before working. |
-| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): nine groups (A through I) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
+| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): eleven groups (A through K) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
 
 ## The two ideas at the core
 
@@ -33,7 +33,7 @@ Drafting from a topic runs the same diagnosis on grain's own output before handi
 
 ## Language coverage
 
-The catalog is bilingual. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, and transitive-verb syntax (A through C, G through I). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean.
+The catalog is bilingual. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, and transitive-verb syntax, numeral and list calques, and telegraphic compression (A through C, G through K). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean.
 
 ## Install
 
