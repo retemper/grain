@@ -13,7 +13,7 @@ grain is deliberately the simplest plugin in the family: **one skill plus one re
 | Piece | What it does |
 |-------|--------------|
 | **`/grain` skill** | Request-triggered. Polishes pasted text or a file (Mode A), or drafts from a topic (Mode B). Reads the catalog before working. |
-| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): nine groups (A through I) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
+| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): eleven groups (A through K) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
 
 ## The two ideas at the core
 

@@ -13,7 +13,7 @@ Invoke the `/grain` skill whenever the user asks to:
 
 ## The two rules that matter most
 
-- **Always read `references/patterns.md` before working.** It is the pattern catalog (A through I) with cited sources. The skill's diagnosis and fixes all lean on it.
+- **Always read `references/patterns.md` before working.** It is the pattern catalog (A through K) with cited sources. The skill's diagnosis and fixes all lean on it.
 - **em dash (—) is a hard ban, no exceptions.** Every other rule is applied unevenly on purpose (uniformity is itself an AI signal), but `—` is removed 100% of the time. Search for the character before output and confirm zero.
 
 ## What grain is not

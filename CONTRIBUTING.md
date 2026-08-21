@@ -13,7 +13,7 @@ The test suite enforces this automatically (see below), so a change that reintro
 | Path | What it is | Build step? |
 |------|-----------|-------------|
 | `skills/grain/SKILL.md` | The `/grain` skill (polish + draft modes) | None |
-| `references/patterns.md` | AI-tell catalog (A through I) with cited sources | None |
+| `references/patterns.md` | AI-tell catalog (A through K) with cited sources | None |
 | `.claude-plugin/*.json` | Plugin + marketplace manifests | None |
 | `CLAUDE.md`, `README.md` | Docs | None |
 | `test/grain.test.mjs` | Invariant guard | Run it |
