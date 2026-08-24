@@ -1,7 +1,7 @@
 {
   "name": "grain",
-  "version": "0.4.0",
-  "description": "Strips the AI tells out of writing. Polishes a draft so it reads like a person wrote it, or drafts one that way from the start, in Korean and English. Ships a pattern catalog grounded in cited research and a /grain skill.",
+  "version": "0.4.1",
+  "description": "Strips the AI tells out of writing. Polishes a draft so it reads like a person wrote it, or drafts one that way from the start. Built for Korean, with partial English coverage. Ships a pattern catalog grounded in cited research and a /grain skill.",
   "author": {
     "name": "retemper"
   },

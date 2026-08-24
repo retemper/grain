@@ -1,6 +1,6 @@
 # grain: how to use it
 
-grain takes the AI tells out of writing. It polishes a draft so it reads like a person wrote it, or drafts one that way from the start. Korean and English.
+grain takes the AI tells out of writing. It polishes a draft so it reads like a person wrote it, or drafts one that way from the start. Built for Korean, with partial coverage for English.
 
 ## When to reach for grain
 
