@@ -1,8 +1,8 @@
 {
   "name": "grain",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
-  "description": "Claude Code plugin: strip AI tells from writing, or draft human from the start. Korean + English.",
+  "description": "Claude Code plugin: strip AI tells from writing, or draft human from the start. Korean-first, with partial English coverage.",
   "license": "MIT",
   "type": "module",
   "scripts": {

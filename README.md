@@ -1,6 +1,6 @@
 # grain
 
-**Take the AI tells out of writing.** `grain` is a Claude Code plugin that polishes a draft until it reads like a person wrote it, or drafts one that way from the start. It works in Korean and English, and leans on a pattern catalog grounded in cited research rather than a vague "make it more natural."
+**Take the AI tells out of writing.** `grain` is a Claude Code plugin that polishes a draft until it reads like a person wrote it, or drafts one that way from the start. It is built for Korean, covers English only in part, and leans on a pattern catalog grounded in cited research rather than a vague "make it more natural."
 
 grain is **not** an AI-detector-score optimizer, and it does **not** impose a house style. It removes the structural fingerprints of machine-written prose and steers toward the things that actually read human: concrete detail, meaning-driven rhythm, one consistent voice. When it polishes, it works inside the tone your draft already has.
 
@@ -33,7 +33,7 @@ Drafting from a topic runs the same diagnosis on grain's own output before handi
 
 ## Language coverage
 
-The catalog is bilingual. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, and transitive-verb syntax, numeral and list calques, and telegraphic compression (A through C, G through K). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean.
+The catalog is Korean-first, and deliberately lopsided. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, and transitive-verb syntax, numeral and list calques, and telegraphic compression (A through C, G through K). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean. An English draft therefore gets the rhetoric and vocabulary passes but not the deep morphology work, so treat English support as partial rather than equal.
 
 ## Install
 

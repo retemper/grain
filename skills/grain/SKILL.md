@@ -1,6 +1,6 @@
 ---
 name: grain
-description: AI 티 나는 글을 자연스럽게 윤문하거나, 처음부터 AI 티 없이 초안을 작성한다. "윤문해줘", "AI 티 없애줘", "자연스럽게 다듬어줘", "사람이 쓴 것처럼", 블로그·워크로그 초안 작성 요청에 사용. 영어로는 "make it sound human", "remove the AI tells", "polish this writing", "de-AI this draft". 한국어·영어 모두.
+description: AI 티 나는 글을 자연스럽게 윤문하거나, 처음부터 AI 티 없이 초안을 작성한다. "윤문해줘", "AI 티 없애줘", "자연스럽게 다듬어줘", "사람이 쓴 것처럼", 블로그·워크로그 초안 작성 요청에 사용. 영어로는 "make it sound human", "remove the AI tells", "polish this writing", "de-AI this draft". 한국어 중심이며, 영어 글에는 공통 패턴(D·E)과 영어 어휘(F)만 적용된다.
 argument-hint: [파일 경로 또는 주제]
 ---
 
