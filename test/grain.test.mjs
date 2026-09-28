@@ -124,14 +124,15 @@ test('docs state the real catalog range', () => {
   const last = letters.at(-1);
   const word = COUNT_WORDS[letters.length];
   assert.ok(word, 'catalog outgrew the count-word table; extend COUNT_WORDS');
-  for (const rel of ['README.md', 'CLAUDE.md', 'CONTRIBUTING.md']) {
+  // Korean docs write the range as "A~L"; English ones as "A through L". Either counts.
+  for (const rel of ['README.md', 'README.en.md', 'CLAUDE.md', 'CONTRIBUTING.md']) {
     const body = read(rel);
     assert.ok(
-      body.includes(`A through ${last}`),
-      `${rel} must state the full catalog range (A through ${last})`,
+      body.includes(`A through ${last}`) || body.includes(`A~${last}`),
+      `${rel} must state the full catalog range (A through ${last} or A~${last})`,
     );
     // Sub-ranges like "G through K" are fine, but none may reach past the catalog.
-    for (const m of body.matchAll(/\b([A-Z]) through ([A-Z])\b/g)) {
+    for (const m of body.matchAll(/\b([A-Z])(?: through |~)([A-Z])\b/g)) {
       assert.ok(
         m[2] <= last,
         `${rel} claims a range ending at ${m[2]}, past the catalog's last section ${last}`,

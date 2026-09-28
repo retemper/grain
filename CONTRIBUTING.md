@@ -15,7 +15,8 @@ The test suite enforces this automatically (see below), so a change that reintro
 | `skills/grain/SKILL.md` | The `/grain` skill (polish + draft modes) | None |
 | `references/patterns.md` | AI-tell catalog (A through L) with cited sources | None |
 | `.claude-plugin/*.json` | Plugin + marketplace manifests | None |
-| `CLAUDE.md`, `README.md` | Docs | None |
+| `CLAUDE.md`, `README.md` | Docs, Korean | None |
+| `README.en.md` | The English README | Keep in sync with `README.md` |
 | `test/grain.test.mjs` | Invariant guard | Run it |
 
 ## Tests

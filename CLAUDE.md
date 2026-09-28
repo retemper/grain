@@ -1,28 +1,28 @@
-# grain: how to use it
+# grain: 쓰는 법
 
-grain takes the AI tells out of writing. It polishes a draft so it reads like a person wrote it, or drafts one that way from the start. Built for Korean, with partial coverage for English.
+grain 은 글에서 AI 티를 걷어냅니다. 초고를 사람이 쓴 글처럼 다듬거나, 처음부터 그렇게 씁니다. 한국어를 기준으로 만들었고 영어는 일부만 다룹니다.
 
-## When to reach for grain
+## 언제 부르나
 
-Invoke the `/grain` skill whenever the user asks to:
+사용자가 이렇게 요청하면 `/grain` 스킬을 부릅니다.
 
-- polish a draft so it stops sounding AI-written ("윤문해줘", "AI 티 없애줘", "자연스럽게 다듬어줘", "사람이 쓴 것처럼", "make it sound human", "remove the AI tells", "de-AI this");
-- write a blog post, worklog, or essay draft that should read human from the start.
+- 초고에서 AI 티를 없애 달라고 할 때 (「윤문해줘」, 「AI 티 없애줘」, 「자연스럽게 다듬어줘」, 「사람이 쓴 것처럼」, "make it sound human", "remove the AI tells", "de-AI this")
+- 처음부터 사람 글로 읽혀야 하는 블로그 글, 작업 기록, 에세이 초고를 써 달라고 할 때
 
-`$ARGUMENTS` decides the mode: a file path or pasted text → **Mode A (polish)**; a topic or request only → **Mode B (draft)**.
+`$ARGUMENTS` 가 모드를 정합니다. 파일 경로나 붙여 넣은 글이면 **모드 A(다듬기)**, 주제나 요청만 있으면 **모드 B(초고)** 입니다.
 
-## The two rules that matter most
+## 가장 중요한 두 규칙
 
-- **Always read `references/patterns.md` before working.** It is the pattern catalog (A through L) with cited sources. The skill's diagnosis and fixes all lean on it.
-- **em dash (—) is a hard ban, no exceptions.** Every other rule is applied unevenly on purpose (uniformity is itself an AI signal), but `—` is removed 100% of the time. Search for the character before output and confirm zero.
+- **일하기 전에 `references/patterns.md` 를 반드시 읽습니다.** 출처를 붙인 패턴 목록(A~L, 원문 표기로는 A through L)이고, 스킬의 진단과 수정이 전부 여기에 기댑니다.
+- **em dash(—)는 예외 없는 절대 금지입니다.** 다른 규칙은 일부러 고르지 않게 적용하지만(고르게 적용하는 것 자체가 AI 신호입니다) `—` 만은 100% 제거합니다. 출력 전에 그 문자를 검색해 0건인지 확인합니다.
 
-## What grain is not
+## grain 이 아닌 것
 
-- Not a style enforcer. It does not impose one person's voice. In polish mode it works *inside* the tone the original already set; it never overwrites the author's voice with a new one.
-- Not an AI-detector-score optimizer. Evading a detector is not the goal; readable, human prose is.
-- Not a fact editor. In polish mode it changes style only, never the numbers, names, dates, quotes, or claims.
-- Not a translator. On Korean text it makes the Korean clearer; it does not turn English terms, quotes, code, log lines, or commit messages into Korean. The skill lists these exclusions under `적용 제외 범위`.
+- 문체를 강제하는 도구가 아닙니다. 한 사람의 목소리를 씌우지 않습니다. 다듬기 모드에서는 원고가 이미 정한 톤 **안에서** 움직이고, 저자의 목소리를 새것으로 덮지 않습니다.
+- AI 탐지기 점수를 맞추는 도구가 아닙니다. 탐지기를 피하는 것이 목적이 아니라 읽히는 사람 글이 목적입니다.
+- 사실을 고치는 도구가 아닙니다. 다듬기 모드에서는 문체만 바꾸고 숫자, 이름, 날짜, 인용, 주장은 건드리지 않습니다.
+- 번역기가 아닙니다. 한국어 글은 한국어로 더 명확하게 만들 뿐이고, 영어 용어나 인용, 코드, 로그 줄, 커밋 메시지를 한국어로 바꾸지 않습니다. 스킬의 `적용 제외 범위` 에 목록이 있습니다.
 
-## How it works
+## 어떻게 동작하나
 
-grain is a single request-triggered skill plus one reference file. No hooks, no MCP server, no network calls, no telemetry. It reads `patterns.md` at work time, so edits to the catalog take effect immediately.
+부를 때만 움직이는 스킬 하나와 참조 파일 하나입니다. 훅도 MCP 서버도 없고, 네트워크 호출도 사용 기록 수집도 없습니다. 일하는 시점에 `patterns.md` 를 읽으므로 목록을 고치면 바로 반영됩니다.

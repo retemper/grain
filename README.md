@@ -1,51 +1,55 @@
 # grain
 
-**Take the AI tells out of writing.** `grain` is a Claude Code plugin that polishes a draft until it reads like a person wrote it, or drafts one that way from the start. It is built for Korean, covers English only in part, and leans on a pattern catalog grounded in cited research rather than a vague "make it more natural."
+*[English](README.en.md)*
 
-grain is **not** an AI-detector-score optimizer, and it does **not** impose a house style. It removes the structural fingerprints of machine-written prose and steers toward the things that actually read human: concrete detail, meaning-driven rhythm, one consistent voice. When it polishes, it works inside the tone your draft already has.
+**글에서 AI 티를 걷어냅니다.** `grain` 은 초고를 사람이 쓴 글처럼 다듬거나, 처음부터 그렇게 쓰는 클로드 코드 플러그인입니다. 한국어를 기준으로 만들었고 영어는 일부만 다룹니다. 「더 자연스럽게」 같은 막연한 요청 대신, 출처를 밝힌 패턴 목록을 근거로 고칩니다.
 
-It belongs to no vendor, phones home to nothing, and collects no telemetry.
+grain 은 AI 탐지기 점수를 올리는 도구가 아니고, 특정한 문체를 강요하지도 않습니다. 기계가 쓴 글에 남는 구조적 지문을 걷어내고, 사람 글로 읽히게 만드는 것들로 끌어갑니다. 구체적인 사실, 뜻이 만드는 리듬, 끝까지 유지되는 하나의 목소리입니다. 다듬을 때는 원고가 이미 가진 톤 안에서 움직입니다.
 
-## How it works
+어느 회사에도 묶여 있지 않고, 아무 곳에도 신호를 보내지 않으며, 사용 기록을 모으지 않습니다.
 
-grain is deliberately the simplest plugin in the family: **one skill plus one reference file.** No hooks, no MCP server.
+## 어떻게 동작하나
 
-| Piece | What it does |
-|-------|--------------|
-| **`/grain` skill** | Request-triggered. Polishes pasted text or a file (Mode A), or drafts from a topic (Mode B). Reads the catalog before working. |
-| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): twelve groups (A through L) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
+grain 은 이 계열에서 가장 단순한 플러그인입니다. **스킬 하나와 참조 파일 하나**입니다. 훅도 MCP 서버도 없습니다.
 
-## The two ideas at the core
+| 구성 | 하는 일 |
+|---|---|
+| **`/grain` 스킬** | 부를 때만 움직입니다. 붙여 넣은 글이나 파일을 다듬고(모드 A), 주제만 주면 초고를 씁니다(모드 B). 일하기 전에 패턴 목록을 먼저 읽습니다. |
+| **패턴 목록** | [`references/patterns.md`](references/patterns.md). AI 글의 흔적을 열두 갈래(A~L, 원문 표기로는 A through L)로 정리하고 고치는 방법과 근거 출처를 함께 담았습니다. 일하는 시점에 읽으므로 목록을 고치면 바로 반영됩니다. |
 
-**Subtraction is only half of it.** Removing the tells (translationese, comma overuse, empty intensifiers, the rule-of-three, hedge stacks) is necessary but not sufficient. Prose still reads AI-written without the other half: concrete specifics, rhythm the meaning drives, and a single voice held to the end. grain does both passes.
+## 핵심은 두 가지입니다
 
-**Uniformity is itself a signal.** Applying every rule mechanically to every paragraph produces the flat evenness that flags AI writing. grain applies its rules *unevenly*, guided by the text, with exactly one exception.
+**빼기만으로는 절반입니다.** 번역투, 쉼표 과잉, 빈 강조어, 셋으로 나열하는 습관, 단서 쌓기를 걷어내는 것은 필요하지만 충분하지 않습니다. 나머지 절반이 없으면 여전히 AI 글로 읽힙니다. 구체적인 사실, 뜻이 정하는 리듬, 끝까지 흔들리지 않는 하나의 목소리입니다. grain 은 두 패스를 다 돌립니다.
 
-## The one hard rule
+**고르게 적용하는 것 자체가 신호입니다.** 모든 규칙을 모든 문단에 기계적으로 적용하면 AI 글의 그 평평한 균일함이 나옵니다. grain 은 규칙을 글에 맞춰 **고르지 않게** 적용합니다. 예외는 딱 하나입니다.
 
-**The em dash (—) is banned, no exceptions.** Spaced ( — ) and dash-use en dashes (–) included. It is the single strongest tell in English prose, so grain removes it 100% of the time and checks for zero before output. Every other rule bends to the text; this one does not.
+## 하나뿐인 절대 규칙
 
-## What you'll see
+**em dash(—)는 예외 없이 금지입니다.** 공백을 두른 형태( — )와 대시 용도의 en dash(–)도 포함입니다. 영어 산문에서 가장 강한 흔적이라 grain 은 100% 제거하고, 출력 전에 0건인지 확인합니다. 다른 규칙은 모두 글에 맞춰 휘지만 이 규칙만은 휘지 않습니다.
 
-Ask grain to polish something and it runs four passes: **diagnose** (quote each flagged sentence with its pattern name), **subtract** (remove the tells), **rhythm** (vary sentence length by meaning, break repeated endings), and **add** (mark where a concrete example or number belongs, though it never fabricates one). You get the revised text plus a short summary of the main changes.
+## 무엇이 나오나
 
-Drafting from a topic runs the same diagnosis on grain's own output before handing it back.
+다듬어 달라고 하면 네 패스를 돌립니다. **진단**(걸린 문장마다 패턴 이름을 붙여 인용), **빼기**(흔적 제거), **리듬**(뜻에 따라 문장 길이를 바꾸고 반복되는 종결을 흩음), **더하기**(구체적인 예나 숫자가 들어갈 자리를 표시하되 지어내지 않음)입니다. 수정본과 주요 변경 요약이 함께 나옵니다.
 
-## Language coverage
+주제만 주고 초고를 맡기면, grain 이 자기 출력에 같은 진단을 돌린 뒤 내놓습니다.
 
-The catalog is Korean-first, and deliberately lopsided. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, transitive-verb syntax, numeral and list calques, telegraphic compression, and empty words (A through C, G through L). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean. An English draft therefore gets the rhetoric and vocabulary passes but not the deep morphology work, so treat English support as partial rather than equal.
+## 다루는 언어
 
-## Install
+패턴 목록은 한국어를 기준으로 했고, 일부러 한쪽으로 기울어 있습니다. 문장 구조와 수사에 걸리는 흔적(D, E)은 두 언어에 다 적용되고, 영어 어휘를 다루는 절(F)이 따로 있습니다. 그리고 번역투, 쉼표와 종결 어미, 표제 문법, 연어, 타동사 논항, 수와 나열의 직역, 전보문체, 뜻이 비는 낱말을 다루는 한국어 층이 두껍습니다(A~C, G~L). 그 층이 AI 글에서 가장 잡기 어려운 부분입니다. 영어 중심으로 정렬된 모델이 한국어에 그대로 투사되면서 생기기 때문입니다. 그래서 영어 원고는 수사와 어휘 패스는 받지만 형태론 작업은 받지 못합니다. 영어 지원은 동등한 것이 아니라 부분적인 것으로 보시면 됩니다.
 
-Add the retemper marketplace and install grain:
+## 설치
+
+retemper 마켓플레이스를 더하고 grain 을 설치합니다.
 
 ```
 /plugin marketplace add retemper/grain
 /plugin install grain@retemper
 ```
 
-Then just ask, in either language: "이 글 윤문해줘", "make this sound human", "AI 티 없애줘".
+비공개 저장소에 올려 두고 거기서 설치해도 똑같이 동작합니다. 그때는 저장소 주소와 마켓플레이스 이름을 그쪽 것으로 바꿔 주세요.
 
-## License
+설치한 다음에는 어느 언어로 부탁해도 됩니다. 「이 글 윤문해줘」, 「AI 티 없애줘」, "make this sound human".
+
+## 라이선스
 
 MIT © retemper
