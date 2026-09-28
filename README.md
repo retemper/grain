@@ -13,7 +13,7 @@ grain is deliberately the simplest plugin in the family: **one skill plus one re
 | Piece | What it does |
 |-------|--------------|
 | **`/grain` skill** | Request-triggered. Polishes pasted text or a file (Mode A), or drafts from a topic (Mode B). Reads the catalog before working. |
-| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): eleven groups (A through K) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
+| **Pattern catalog** | [`references/patterns.md`](references/patterns.md): twelve groups (A through L) of AI-writing tells with fixes, plus the cited sources behind them. Read at work time, so edits take effect immediately. |
 
 ## The two ideas at the core
 
@@ -33,7 +33,7 @@ Drafting from a topic runs the same diagnosis on grain's own output before handi
 
 ## Language coverage
 
-The catalog is Korean-first, and deliberately lopsided. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, and transitive-verb syntax, numeral and list calques, and telegraphic compression (A through C, G through K). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean. An English draft therefore gets the rhetoric and vocabulary passes but not the deep morphology work, so treat English support as partial rather than equal.
+The catalog is Korean-first, and deliberately lopsided. The common syntax-and-rhetoric tells (D, E) apply to both languages; there is an English-vocabulary section (F) and a deep Korean layer covering translationese, comma and ending morphology, heading grammar, collocation, transitive-verb syntax, numeral and list calques, telegraphic compression, and empty words (A through C, G through L). That layer is the part of AI writing hardest to catch, because it comes from English-centric alignment projected onto Korean. An English draft therefore gets the rhetoric and vocabulary passes but not the deep morphology work, so treat English support as partial rather than equal.
 
 ## Install
 
