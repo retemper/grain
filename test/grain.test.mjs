@@ -59,13 +59,13 @@ test('the pattern catalog exists and keeps its cited sources', () => {
 // The retemper hard rule: 100% generic, no coupling to any person or org, no
 // telemetry / phone-home. Only packaging metadata may name "retemper".
 test('no personal or organizational coupling anywhere', () => {
+  // The author's own name and former employer used to be listed here as regexes.
+  // grain ships inside a course, so this file reaches readers: spelling the names
+  // out to forbid them published them instead. The rule stands, the strings do not.
   const forbidden = [
-    /minhyeok/i,
-    /강민혁/,
     /\b볼트\b/,
     /obsidian/i,
     /vercel/i,
-    /\bflex\b/i, // the org the sibling concept came from; must never appear
   ];
   for (const rel of textFiles) {
     const body = read(rel);
